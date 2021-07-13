@@ -159,7 +159,7 @@ static int sdp_writeFile(hid_device *dev, uint32_t addr, void *data, size_t size
 		/* print progress */
 		fprintf(stderr, "\r - Sent (%lu/%lu) %3.0f%% ", offset, size, ((float)offset / (float)size) * 100.0f);
 
-		if ((rc = hid_write(dev, b, n + 1)) < 0) {
+		if ((rc = hid_write(dev, b, BUF_SIZE)) < 0) {
 			fprintf(stderr, "\nFailed to send image contents (rc=%d)\n", rc);
 			return SCRIPT_ERROR;
 		}
